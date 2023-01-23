@@ -181,9 +181,10 @@ export default function Transaction() {
                                         <TableCell component="th" scope="row" padding="none" />
                                         <TableCell align="left"> </TableCell>
                                         <TableCell align="left"> </TableCell>
-                                        <TableCell align="left"> </TableCell>
-                                        <TableCell align="left" sx={{ fontWeight: "600" }}>Closing Balance </TableCell>
-                                        <TableCell align="left" sx={{ fontWeight: "700", color: "green" }}>200 </TableCell>
+                                        <TableCell align="right" sx={{ fontWeight: "600" }}>Closing Balance </TableCell>
+                                        <TableCell align="center"> </TableCell>
+
+                                        <TableCell align="center" sx={{ fontWeight: "700", color: "green" }}>200 </TableCell>
                                     </TableRow>
                                 </TableBody>
                             </Table>
