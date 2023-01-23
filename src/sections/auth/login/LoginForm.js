@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useFormik, Form, FormikProvider } from 'formik';
 // material
@@ -10,7 +10,7 @@ import Iconify from '../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
-export default function LoginForm() {
+export default function LoginForm({ type }) {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -19,6 +19,7 @@ export default function LoginForm() {
     email: Yup.string().required('Username is required'),
     password: Yup.string().required('Password is required'),
   });
+
 
   const formik = useFormik({
     initialValues: {
@@ -37,6 +38,11 @@ export default function LoginForm() {
   const handleShowPassword = () => {
     setShowPassword((show) => !show);
   };
+  useEffect(() => {
+    sessionStorage.setItem("type", type)
+  }, [])
+
+  console.log({ type })
 
   return (
     <FormikProvider value={formik}>

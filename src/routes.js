@@ -5,7 +5,6 @@ import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 //
 import Blog from './pages/Blog';
 import User from './pages/User';
-import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
 import Products from './pages/Products';
@@ -16,7 +15,8 @@ import RoomBooking from './pages/RoomBooking/RoomBooking';
 import EventCalendar from './pages/EventCalendar/EventCalendar';
 import MemberDirectory from './pages/MemberDirectory/MemberDirectory';
 import CircularNotification from './pages/CircularNotification/CircularNotification';
-
+import MemberLogin from './pages/MemberLogin';
+import AdminLogin from './pages/AdminLogin';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -42,7 +42,8 @@ export default function Router() {
       element: <LogoOnlyLayout />,
       children: [
         { path: '/', element: <Navigate to="/dashboard/app" /> },
-        { path: 'login', element: <Login /> },
+        { path: 'member-login', element: <MemberLogin /> },
+        { path: 'admin-login', element: <AdminLogin /> },
         { path: 'register', element: <Register /> },
         { path: '404', element: <NotFound /> },
         { path: '*', element: <Navigate to="/404" /> },

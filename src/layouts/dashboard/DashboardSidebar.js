@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
@@ -15,6 +15,7 @@ import NavSection from '../../components/NavSection';
 //
 import navConfig from './NavConfig';
 import logo from '../../image/logo.png';
+import adminNavConfig from './AdminNavConfig';
 
 
 // ----------------------------------------------------------------------
@@ -45,6 +46,7 @@ DashboardSidebar.propTypes = {
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
+  const [loginType, setLoginType] = useState()
 
   const isDesktop = useResponsive('up', 'lg');
 
@@ -52,6 +54,8 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     if (isOpenSidebar) {
       onCloseSidebar();
     }
+    const type = sessionStorage.getItem("type")
+    setLoginType(type)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
@@ -67,7 +71,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         <img src={logo} alt="logo" />
       </Box>
 
-      <NavSection navConfig={navConfig} />
+      {loginType === "admin" ? <NavSection navConfig={adminNavConfig} /> : <NavSection navConfig={navConfig} />}
 
       <Box sx={{ flexGrow: 1 }} />
 
