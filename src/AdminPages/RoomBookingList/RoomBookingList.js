@@ -2,19 +2,18 @@ import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 // material
 import {
     Card,
     Table,
     Stack,
-    Box,
     Avatar,
     Button,
     Checkbox,
     TableRow,
     TableBody,
+    Box,
     TableCell,
     Container,
     Typography,
@@ -34,10 +33,13 @@ import USERLIST from '../../_mock/user';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-    { id: 'title', label: 'Title', alignRight: false },
-    { id: 'description', label: 'Description', alignRight: false },
-    { id: 'startDate', label: 'Start Date', alignRight: false },
-    { id: 'endDate', label: 'End Date', alignRight: false },
+    { id: 'member', label: 'Member Type', alignRight: false },
+    { id: 'memberName', label: 'Member Name', alignRight: false },
+    { id: 'membership', label: 'Membership Number', alignRight: false },
+    { id: 'mobileNumber', label: 'Mobile Number', alignRight: false },
+    { id: 'emailId', label: 'Email ID', alignRight: false },
+    { id: 'checkindate', label: 'Check-in Date', alignRight: false },
+    { id: 'checkoutdate', label: 'Check-out Date', alignRight: false },
     { id: 'action', label: 'Action', alignRight: false },
     { id: '' },
 ];
@@ -73,7 +75,7 @@ function applySortFilter(array, comparator, query) {
     return stabilizedThis.map((el) => el[0]);
 }
 
-export default function Event() {
+export default function RoomBookingList() {
     const [page, setPage] = useState(0);
 
     const [order, setOrder] = useState('asc');
@@ -137,28 +139,29 @@ export default function Event() {
 
     const isUserNotFound = filteredUsers.length === 0;
 
-    const newEvent = () => {
-        navigate("/dashboard/new-event")
-    }
+    // const newEvent = () => {
+    //     navigate("/dashboard/add-newsletter")
+    // }
 
     return (
         <Page title="User">
             <Container>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" mb={1}>
                     <Typography variant="h4" gutterBottom sx={{ color: "#ad0040" }}>
-                        Events
+                        Rooms bookings
                     </Typography>
-                    <Button onClick={newEvent} variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
-                        Add Event
-                    </Button>
+                    {/* <Button onClick={newEvent} variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+                        Add  Newsletters
+                    </Button> */}
                 </Stack>
                 <Card>
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0px 20px" }}>
                         <Typography variant="h5">
-                            Events List
+                            List of Rooms bookings
                         </Typography>
                         <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
                     </Box>
+
                     <Scrollbar>
                         <TableContainer sx={{ minWidth: 800 }}>
                             <Table>
@@ -196,12 +199,14 @@ export default function Event() {
                                                     </Stack>
                                                 </TableCell>
                                                 <TableCell align="left">Full member</TableCell>
-                                                <TableCell align="left">44</TableCell>
-                                                <TableCell align="left">Rocky</TableCell>
+                                                <TableCell align="left">Full member</TableCell>
+                                                <TableCell align="left">Full member</TableCell>
+                                                <TableCell align="left">03/3/2023</TableCell>
+                                                <TableCell align="left">03/3/2023</TableCell>
+                                                <TableCell align="left">03/3/2023</TableCell>
                                                 <TableCell sx={{ display: "flex" }}>
-                                                    <Button sx={{ background: "#6c757d", marginRight: "4px" }} variant="contained"><EditIcon />Edit </Button>
-                                                    <Button sx={{ background: "#dc3545" }} variant="contained"
-                                                    ><DeleteIcon />Delete</Button>
+                                                    <Button sx={{ background: "#6c757d", marginRight: "4px" }} variant="contained"><VisibilityIcon />View </Button>
+
                                                 </TableCell>
                                             </TableRow>
                                         );

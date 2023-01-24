@@ -9,12 +9,12 @@ import {
     Card,
     Table,
     Stack,
-    Box,
     Avatar,
     Button,
     Checkbox,
     TableRow,
     TableBody,
+    Box,
     TableCell,
     Container,
     Typography,
@@ -34,10 +34,11 @@ import USERLIST from '../../_mock/user';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-    { id: 'title', label: 'Title', alignRight: false },
-    { id: 'description', label: 'Description', alignRight: false },
-    { id: 'startDate', label: 'Start Date', alignRight: false },
-    { id: 'endDate', label: 'End Date', alignRight: false },
+    { id: 'title', label: 'Name', alignRight: false },
+    { id: 'email', label: 'Email', alignRight: false },
+    { id: 'permissions', label: 'Permissions', alignRight: false },
+    { id: 'account', label: 'Account Verified', alignRight: false },
+    { id: 'recently', label: 'Recently Logged In At', alignRight: false },
     { id: 'action', label: 'Action', alignRight: false },
     { id: '' },
 ];
@@ -73,7 +74,7 @@ function applySortFilter(array, comparator, query) {
     return stabilizedThis.map((el) => el[0]);
 }
 
-export default function Event() {
+export default function Administration() {
     const [page, setPage] = useState(0);
 
     const [order, setOrder] = useState('asc');
@@ -138,7 +139,7 @@ export default function Event() {
     const isUserNotFound = filteredUsers.length === 0;
 
     const newEvent = () => {
-        navigate("/dashboard/new-event")
+        navigate("/dashboard/new-administration")
     }
 
     return (
@@ -146,19 +147,20 @@ export default function Event() {
             <Container>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" mb={1}>
                     <Typography variant="h4" gutterBottom sx={{ color: "#ad0040" }}>
-                        Events
+                        Administration
                     </Typography>
                     <Button onClick={newEvent} variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
-                        Add Event
+                        Add  Users
                     </Button>
                 </Stack>
                 <Card>
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0px 20px" }}>
                         <Typography variant="h5">
-                            Events List
+                            List of Users
                         </Typography>
                         <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
                     </Box>
+
                     <Scrollbar>
                         <TableContainer sx={{ minWidth: 800 }}>
                             <Table>
@@ -196,8 +198,9 @@ export default function Event() {
                                                     </Stack>
                                                 </TableCell>
                                                 <TableCell align="left">Full member</TableCell>
-                                                <TableCell align="left">44</TableCell>
-                                                <TableCell align="left">Rocky</TableCell>
+                                                <TableCell align="left">Full member</TableCell>
+                                                <TableCell align="left">Full member</TableCell>
+                                                <TableCell align="left">03/3/2023</TableCell>
                                                 <TableCell sx={{ display: "flex" }}>
                                                     <Button sx={{ background: "#6c757d", marginRight: "4px" }} variant="contained"><EditIcon />Edit </Button>
                                                     <Button sx={{ background: "#dc3545" }} variant="contained"

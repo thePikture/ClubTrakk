@@ -28,27 +28,27 @@ const adminNavConfig = [
     },
     {
         title: 'Circulars and rules',
-        path: '',
+        path: '/dashboard/circular-rules',
         icon: getIcon('mdi:circular-arrows'),
     },
     {
         title: 'Newslettters',
-        path: '',
+        path: '/dashboard/newsletter',
         icon: getIcon('fluent:news-20-regular'),
     },
     {
         title: 'Room bookings',
-        path: '',
+        path: '/dashboard/room-booking-list',
         icon: getIcon('tabler:brand-booking'),
     },
     {
         title: 'Messages',
-        path: '',
+        path: '/dashboard/messages',
         icon: getIcon('simple-icons:googlemessages'),
     },
     {
         title: 'Administration',
-        path: '',
+        path: '/dashboard/administration',
         icon: getIcon('medical-icon:administration'),
     },
 ];

@@ -19,6 +19,14 @@ import MemberLogin from './pages/MemberLogin';
 import AdminLogin from './pages/AdminLogin';
 import Event from './AdminPages/Event/Event';
 import NewEvent from './AdminPages/Event/NewEvent';
+import CircularRules from './AdminPages/CircularsRules/CircularsRules';
+import NewCircularsRules from './AdminPages/CircularsRules/NewCircularsRules';
+import Newslettters from './AdminPages/Newsletters/Newsletters';
+import AddNewsLetters from './AdminPages/Newsletters/AddNewsLetters';
+import RoomBookingList from './AdminPages/RoomBookingList/RoomBookingList';
+import Administration from './AdminPages/Administration/Administration';
+import NewAdministration from './AdminPages/Administration/NewAdministration';
+import Messages from './AdminPages/Messages/Messages';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -39,6 +47,14 @@ export default function Router() {
         { path: 'cirular-notification', element: <CircularNotification /> },
         { path: 'event', element: <Event /> },
         { path: 'new-event', element: <NewEvent /> },
+        { path: 'circular-rules', element: <CircularRules /> },
+        { path: 'new-circular-rules', element: <NewCircularsRules /> },
+        { path: 'newsletter', element: <Newslettters /> },
+        { path: 'add-newsletter', element: <AddNewsLetters /> },
+        { path: 'room-booking-list', element: <RoomBookingList /> },
+        { path: 'administration', element: <Administration /> },
+        { path: 'new-administration', element: <NewAdministration /> },
+        { path: 'messages', element: <Messages /> },
       ],
     },
     {

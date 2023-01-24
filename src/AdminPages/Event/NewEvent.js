@@ -270,7 +270,6 @@ const NewEvent = () => {
                             <Grid item xs={12} sx={12}>
                                 <Typography variant='h5'>Add Event Files</Typography>
                             </Grid>
-
                             {inputList.map((x, i) => {
                                 return (<>
                                     <Grid item xs={6} sm={4} md={4}>
@@ -310,7 +309,7 @@ const NewEvent = () => {
                                 <Box sx={{ color: "red" }}>{error}</Box>
                             </Grid>)} */}
                             <Grid item xs={12} sx={12}>
-                                <Button fullWidth variant="contained" type='submit' sx={{ background: "#1c471c" }}>
+                                <Button fullWidth variant="contained" type='submit'>
                                     Submit
                                 </Button>
                             </Grid>
