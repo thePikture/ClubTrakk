@@ -28,6 +28,7 @@ import Administration from './AdminPages/Administration/Administration';
 import NewAdministration from './AdminPages/Administration/NewAdministration';
 import Messages from './AdminPages/Messages/Messages';
 import Members from './AdminPages/Members/Members';
+import ViewMessage from './AdminPages/Messages/ViewMessage';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -57,6 +58,7 @@ export default function Router() {
         { path: 'new-administration', element: <NewAdministration /> },
         { path: 'messages', element: <Messages /> },
         { path: 'members', element: <Members /> },
+        { path: 'view-message', element: <ViewMessage /> },
       ],
     },
     {
