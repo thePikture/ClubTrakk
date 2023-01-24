@@ -27,6 +27,7 @@ import RoomBookingList from './AdminPages/RoomBookingList/RoomBookingList';
 import Administration from './AdminPages/Administration/Administration';
 import NewAdministration from './AdminPages/Administration/NewAdministration';
 import Messages from './AdminPages/Messages/Messages';
+import Members from './AdminPages/Members/Members';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -55,6 +56,7 @@ export default function Router() {
         { path: 'administration', element: <Administration /> },
         { path: 'new-administration', element: <NewAdministration /> },
         { path: 'messages', element: <Messages /> },
+        { path: 'members', element: <Members /> },
       ],
     },
     {

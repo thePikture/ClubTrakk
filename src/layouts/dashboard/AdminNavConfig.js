@@ -23,7 +23,7 @@ const adminNavConfig = [
     },
     {
         title: 'Members',
-        path: '',
+        path: '/dashboard/members',
         icon: getIcon('ic:outline-card-membership'),
     },
     {
