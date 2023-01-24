@@ -15,6 +15,7 @@ import {
     InputAdornment,
     Stack,
     Select,
+    TextareaAutosize,
     MenuItem,
     InputLabel,
     FormControl,
@@ -61,11 +62,11 @@ const Members = () => {
                             </Grid>
                             <Grid item xs={6} sm={4} md={4}>
                                 <FormControl fullWidth>
-                                    <InputLabel>Member type*</InputLabel>
+                                    <InputLabel>Member type</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-label"
                                         id="demo-simple-select"
-                                        label="Member profile type*"
+                                        label="Member type"
                                     >
                                         <MenuItem>1</MenuItem>
                                         <MenuItem>2</MenuItem>
@@ -73,133 +74,163 @@ const Members = () => {
                                     </Select>
                                 </FormControl>
                             </Grid>
-                            <Grid item xs={6} sx={12}>
-                                <InputLabel>Start-Date</InputLabel>
+                            <Grid item xs={12} sx={12}>
                                 <TextField
                                     fullWidth
                                     autoComplete="text"
-                                    type="date"
-                                />
-                            </Grid>
-                            <Grid item xs={6} sx={12}>
-                                <InputLabel>End-Date</InputLabel>
-                                <TextField
-                                    fullWidth
-                                    autoComplete="text"
-                                    type="date"
+                                    type="text"
+                                    label="Full Name"
                                 />
                             </Grid>
                             <Grid item xs={6} sx={12}>
-                                <InputLabel>Start-Time</InputLabel>
                                 <TextField
                                     fullWidth
                                     autoComplete="text"
-                                    type="time"
+                                    type="email"
+                                    label='Email'
                                 />
                             </Grid>
                             <Grid item xs={6} sx={12}>
-                                <InputLabel>End-Time</InputLabel>
-                                <TextField
-                                    fullWidth
-                                    autoComplete="text"
-                                    type="time"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sx={12}>
-                                <InputLabel>Image</InputLabel>
-                                <TextField
-                                    fullWidth
-                                    autoComplete="text"
-                                    type="file"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sx={12}>
                                 <TextField
                                     fullWidth
                                     autoComplete="text"
                                     type="text"
-                                    label="Event category"
+                                    label='Mobile Number'
                                 />
                             </Grid>
                             <Grid item xs={12} sx={12}>
-                                <FormControl fullWidth>
-                                    <InputLabel>Location</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        label="Location"
-                                    >
-                                        <MenuItem>p</MenuItem>
-                                        <MenuItem>p</MenuItem>
-                                        <MenuItem>p</MenuItem>
-
-                                    </Select>
-                                </FormControl>
+                                <hr />
                             </Grid>
-
+                        </Grid>
+                        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                            <Grid item xs={6} sx={12}>
+                                <Typography variant='h4' sx={{ padding: '15px 0px', color: "grey" }}>Home Address</Typography>
+                                <Box>
+                                    <InputLabel>Short description</InputLabel>
+                                    <TextareaAutosize
+                                        fullWidth
+                                        minRows={4}
+                                        style={{ width: "100%" }}
+                                        type="text"
+                                    />
+                                </Box>
+                                <Box sx={{ margin: "10px 0px" }}>
+                                    <InputLabel>City</InputLabel>
+                                    <TextField
+                                        fullWidth
+                                        autoComplete="text"
+                                        type="text"
+                                    />
+                                </Box>
+                                <Box sx={{ margin: "10px 0px" }}>
+                                    <InputLabel>Pincode</InputLabel>
+                                    <TextField
+                                        fullWidth
+                                        autoComplete="text"
+                                        type="text"
+                                    />
+                                </Box>
+                                <Box sx={{ margin: "15px 0px" }}>
+                                    <FormControl fullWidth>
+                                        <InputLabel>Country</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            label="Country"
+                                        >
+                                            <MenuItem>1</MenuItem>
+                                            <MenuItem>2</MenuItem>
+                                            <MenuItem>3</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                                <Box>
+                                    <InputLabel>Home Phone</InputLabel>
+                                    <TextField
+                                        fullWidth
+                                        autoComplete="text"
+                                        type="text"
+                                    />
+                                </Box>
+                            </Grid>
+                            <Grid item xs={6} sx={12}>
+                                <Typography variant='h4' sx={{ padding: '15px 0px', color: "grey" }}>Office Address</Typography>
+                                <Box sx={{ margin: "10px 0px" }}>
+                                    <InputLabel>Company</InputLabel>
+                                    <TextField
+                                        fullWidth
+                                        autoComplete="text"
+                                        type="text"
+                                    />
+                                </Box>
+                                <Box>
+                                    <InputLabel>Address</InputLabel>
+                                    <TextareaAutosize
+                                        fullWidth
+                                        minRows={4}
+                                        style={{ width: "100%" }}
+                                        type="text"
+                                    />
+                                </Box>
+                                <Box sx={{ margin: "10px 0px" }}>
+                                    <InputLabel>City</InputLabel>
+                                    <TextField
+                                        fullWidth
+                                        autoComplete="text"
+                                        type="text"
+                                    />
+                                </Box>
+                                <Box sx={{ margin: "10px 0px" }}>
+                                    <InputLabel>Pincode</InputLabel>
+                                    <TextField
+                                        fullWidth
+                                        autoComplete="text"
+                                        type="text"
+                                    />
+                                </Box>
+                                <Box sx={{ margin: "15px 0px" }}>
+                                    <FormControl fullWidth>
+                                        <InputLabel>Country</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            label="Country"
+                                        >
+                                            <MenuItem>1</MenuItem>
+                                            <MenuItem>2</MenuItem>
+                                            <MenuItem>3</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                                <Box sx={{ margin: "15px 0px" }}>
+                                    <InputLabel>Office Phone</InputLabel>
+                                    <TextField
+                                        fullWidth
+                                        autoComplete="text"
+                                        type="text"
+                                    />
+                                </Box>
+                                <Box sx={{ margin: "15px 0px" }}>
+                                    <InputLabel>Extension</InputLabel>
+                                    <TextField
+                                        fullWidth
+                                        autoComplete="text"
+                                        type="text"
+                                    />
+                                </Box>
+                            </Grid>
                             <Grid item xs={12} sx={12}>
-                                <TextField
-                                    fullWidth
-                                    autoComplete="text"
-                                    type="text"
-                                    label="Other location"
-                                />
+                                <hr />
+                            </Grid>
+                            <Grid item xs={6} sx={12}>
+                                Preferred communication address
+                            </Grid>
+                            <Grid item xs={6} sx={12}>
+                                Preferred communication address
                             </Grid>
                             <Grid item xs={12} sx={12}>
-                                <TextField
-                                    fullWidth
-                                    autoComplete="text"
-                                    type="text"
-                                    label="Dress code"
-                                />
+                                <hr />
                             </Grid>
-                            <Grid item xs={12} sx={12}>
-                                <TextField
-                                    fullWidth
-                                    autoComplete="text"
-                                    type="text"
-                                    label="Charges per member"
-                                />
-                            </Grid>
-
-                            <Grid item xs={12} sx={12}>
-                                <TextField
-                                    fullWidth
-                                    autoComplete="text"
-                                    type="text"
-                                    label="Guest children charges"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sx={12}>
-                                <TextField
-                                    fullWidth
-                                    autoComplete="text"
-                                    type="text"
-                                    label="Min age to attend event"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sx={12}>
-                                <FormControl fullWidth>
-                                    <InputLabel>Club facility</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        label="Club facility"
-                                    >
-                                        <MenuItem>p</MenuItem>
-                                        <MenuItem>p</MenuItem>
-                                        <MenuItem>p</MenuItem>
-
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-                            <Grid item xs={12} sx={12}>
-                                <Typography variant='h5'>Add Event Files</Typography>
-                            </Grid>
-
-                            {/* {error.length > 0 && (<Grid item xs={12} sx={12}>
-                                <Box sx={{ color: "red" }}>{error}</Box>
-                            </Grid>)} */}
                             <Grid item xs={12} sx={12}>
                                 <Button fullWidth variant="contained" type='submit'>
                                     Submit
