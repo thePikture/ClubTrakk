@@ -17,6 +17,8 @@ import MemberDirectory from './pages/MemberDirectory/MemberDirectory';
 import CircularNotification from './pages/CircularNotification/CircularNotification';
 import MemberLogin from './pages/MemberLogin';
 import AdminLogin from './pages/AdminLogin';
+import Event from './AdminPages/Event/Event';
+import NewEvent from './AdminPages/Event/NewEvent';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -35,6 +37,8 @@ export default function Router() {
         { path: 'event-calendar', element: <EventCalendar /> },
         { path: 'member-directory', element: <MemberDirectory /> },
         { path: 'cirular-notification', element: <CircularNotification /> },
+        { path: 'event', element: <Event /> },
+        { path: 'new-event', element: <NewEvent /> },
       ],
     },
     {

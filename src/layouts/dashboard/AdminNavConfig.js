@@ -13,7 +13,7 @@ const adminNavConfig = [
     },
     {
         title: 'Event',
-        path: '',
+        path: '/dashboard/event',
         icon: getIcon('mdi:events'),
     },
     {

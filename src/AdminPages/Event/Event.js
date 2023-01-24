@@ -1,7 +1,9 @@
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 // material
 import {
     Card,
@@ -17,7 +19,6 @@ import {
     Typography,
     TableContainer,
     TablePagination,
-    Box,
 } from '@mui/material';
 // components
 import Page from '../../components/Page';
@@ -32,12 +33,11 @@ import USERLIST from '../../_mock/user';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-    { id: 'date', label: 'Date', alignRight: false },
-    { id: 'voucherType', label: 'Voucher Type', alignRight: false },
-    { id: 'voucherNo', label: 'Voucher No.', alignRight: false },
-    { id: 'particulars', label: 'Particulars', alignRight: false },
-    { id: 'debit', label: 'Debit', alignRight: false },
-    { id: 'credit', label: 'Credit', alignRight: false },
+    { id: 'title', label: 'Title', alignRight: false },
+    { id: 'description', label: 'Description', alignRight: false },
+    { id: 'startDate', label: 'Start Date', alignRight: false },
+    { id: 'endDate', label: 'End Date', alignRight: false },
+    { id: 'action', label: 'Action', alignRight: false },
     { id: '' },
 ];
 
@@ -72,7 +72,7 @@ function applySortFilter(array, comparator, query) {
     return stabilizedThis.map((el) => el[0]);
 }
 
-export default function Transaction() {
+export default function Event() {
     const [page, setPage] = useState(0);
 
     const [order, setOrder] = useState('asc');
@@ -84,6 +84,8 @@ export default function Transaction() {
     const [filterName, setFilterName] = useState('');
 
     const [rowsPerPage, setRowsPerPage] = useState(5);
+
+    const navigate = useNavigate()
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -100,6 +102,29 @@ export default function Transaction() {
         setSelected([]);
     };
 
+    const handleClick = (event, name) => {
+        const selectedIndex = selected.indexOf(name);
+        let newSelected = [];
+        if (selectedIndex === -1) {
+            newSelected = newSelected.concat(selected, name);
+        } else if (selectedIndex === 0) {
+            newSelected = newSelected.concat(selected.slice(1));
+        } else if (selectedIndex === selected.length - 1) {
+            newSelected = newSelected.concat(selected.slice(0, -1));
+        } else if (selectedIndex > 0) {
+            newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1));
+        }
+        setSelected(newSelected);
+    };
+
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
 
     const handleFilterByName = (event) => {
         setFilterName(event.target.value);
@@ -111,19 +136,23 @@ export default function Transaction() {
 
     const isUserNotFound = filteredUsers.length === 0;
 
+    const newEvent = () => {
+        navigate("/dashboard/new-event")
+    }
 
     return (
         <Page title="User">
             <Container>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" mb={1}>
                     <Typography variant="h4" gutterBottom>
-                        Transactions
+                        Events
                     </Typography>
+                    <Button onClick={newEvent} variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+                        Add Event
+                    </Button>
                 </Stack>
-
                 <Card>
                     <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
-
                     <Scrollbar>
                         <TableContainer sx={{ minWidth: 800 }}>
                             <Table>
@@ -137,7 +166,7 @@ export default function Transaction() {
                                     onSelectAllClick={handleSelectAllClick}
                                 />
                                 <TableBody>
-                                    {filteredUsers.map((row) => {
+                                    {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                                         const { id, name, role, status, company, avatarUrl, isVerified } = row;
                                         const isItemSelected = selected.indexOf(name) !== -1;
 
@@ -156,41 +185,50 @@ export default function Transaction() {
                                                 <TableCell component="th" scope="row" padding="none">
                                                     <Stack direction="row" alignItems="center" spacing={2}>
                                                         <Typography variant="subtitle2" noWrap>
-                                                            1/12/2023
+                                                            Dependant
                                                         </Typography>
                                                     </Stack>
                                                 </TableCell>
-                                                <TableCell align="left">Voucher</TableCell>
-                                                <TableCell align="left">12</TableCell>
-                                                <TableCell align="left">part </TableCell>
-                                                <TableCell align="center">400 </TableCell>
-                                                <TableCell align="center">200 </TableCell>
+                                                <TableCell align="left">Full member</TableCell>
+                                                <TableCell align="left">44</TableCell>
+                                                <TableCell align="left">Rocky</TableCell>
+                                                <TableCell sx={{ display: "flex" }}>
+                                                    <Button sx={{ background: "#6c757d", marginRight: "4px" }} variant="contained"><EditIcon />Edit </Button>
+                                                    <Button sx={{ background: "#dc3545" }} variant="contained"
+                                                    ><DeleteIcon />Delete</Button>
+                                                </TableCell>
                                             </TableRow>
                                         );
                                     })}
-                                    <TableRow>
-                                        <TableCell padding="checkbox" />
-                                        <TableCell component="th" scope="row" padding="none" />
-                                        <TableCell align="left"> </TableCell>
-                                        <TableCell align="left"> </TableCell>
-                                        <TableCell align="right" sx={{ fontWeight: "600" }}>Sub Total</TableCell>
-                                        <TableCell align="center" sx={{ fontWeight: "700", color: "#007bff" }}>400 </TableCell>
-                                        <TableCell align="center" sx={{ fontWeight: "700", color: "#007bff" }}>200 </TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell padding="checkbox" />
-                                        <TableCell component="th" scope="row" padding="none" />
-                                        <TableCell align="left"> </TableCell>
-                                        <TableCell align="left"> </TableCell>
-                                        <TableCell align="right" sx={{ fontWeight: "600" }}>Closing Balance </TableCell>
-                                        <TableCell align="center"> </TableCell>
-
-                                        <TableCell align="center" sx={{ fontWeight: "700", color: "green" }}>200 </TableCell>
-                                    </TableRow>
+                                    {emptyRows > 0 && (
+                                        <TableRow style={{ height: 53 * emptyRows }}>
+                                            <TableCell colSpan={6} />
+                                        </TableRow>
+                                    )}
                                 </TableBody>
+
+                                {isUserNotFound && (
+                                    <TableBody>
+                                        <TableRow>
+                                            <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
+                                                <SearchNotFound searchQuery={filterName} />
+                                            </TableCell>
+                                        </TableRow>
+                                    </TableBody>
+                                )}
                             </Table>
                         </TableContainer>
                     </Scrollbar>
+
+                    <TablePagination
+                        rowsPerPageOptions={[5, 10, 25]}
+                        component="div"
+                        count={USERLIST.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        onRowsPerPageChange={handleChangeRowsPerPage}
+                    />
                 </Card>
             </Container>
         </Page>
