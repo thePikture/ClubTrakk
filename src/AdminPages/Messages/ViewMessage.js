@@ -21,6 +21,8 @@ import {
   TablePagination,
 } from '@mui/material';
 // components
+import Footer from '../../components/Footer';
+
 import Page from '../../components/Page';
 import Label from '../../components/Label';
 import Scrollbar from '../../components/Scrollbar';
@@ -45,51 +47,54 @@ export default function ViewMessage() {
           <Box sx={{ padding: '20px 35px' }}>
             <Typography variant="h5">Message Details</Typography>
           </Box>
-          <TableContainer sx={{ minWidth: 800, padding: '20px' }}>
-            <Table sx={{ border: '1px solid rgba(241, 243, 244, 1)' }}>
-              <TableBody>
-                <TableRow>
-                  <TableCell sx={{ width: '20%', borderRight: '1px solid rgba(241, 243, 244, 1)' }}>
-                    Membership Type
-                  </TableCell>
-                  <TableCell align="left">Membership Type</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Name</TableCell>
-                  <TableCell>Name</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Membership Number</TableCell>
-                  <TableCell>Membership Number</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Affliated Club</TableCell>
-                  <TableCell>Affliated Club</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Phone Number</TableCell>
-                  <TableCell>Phone Number</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Company Name</TableCell>
-                  <TableCell>Company Name</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Subject</TableCell>
-                  <TableCell>Subject</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Message</TableCell>
-                  <TableCell>Message</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Country Details</TableCell>
-                  <TableCell>Country Details</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <Scrollbar>
+            <TableContainer sx={{ minWidth: 800, padding: '20px' }}>
+              <Table sx={{ border: '1px solid rgba(241, 243, 244, 1)' }}>
+                <TableBody>
+                  <TableRow>
+                    <TableCell sx={{ width: '20%', borderRight: '1px solid rgba(241, 243, 244, 1)' }}>
+                      Membership Type
+                    </TableCell>
+                    <TableCell align="left">Membership Type</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Name</TableCell>
+                    <TableCell>Name</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Membership Number</TableCell>
+                    <TableCell>Membership Number</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Affliated Club</TableCell>
+                    <TableCell>Affliated Club</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Phone Number</TableCell>
+                    <TableCell>Phone Number</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Company Name</TableCell>
+                    <TableCell>Company Name</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Subject</TableCell>
+                    <TableCell>Subject</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Message</TableCell>
+                    <TableCell>Message</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Country Details</TableCell>
+                    <TableCell>Country Details</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Scrollbar>
         </Card>
+        <Footer />
       </Container>
     </Page>
   );

@@ -29,6 +29,7 @@ import NewAdministration from './AdminPages/Administration/NewAdministration';
 import Messages from './AdminPages/Messages/Messages';
 import Members from './AdminPages/Members/Members';
 import ViewMessage from './AdminPages/Messages/ViewMessage';
+import ViewRoomBooking from './AdminPages/RoomBookingList/ViewRoomBooking';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -59,6 +60,7 @@ export default function Router() {
         { path: 'messages', element: <Messages /> },
         { path: 'members', element: <Members /> },
         { path: 'view-message', element: <ViewMessage /> },
+        { path: 'view-roombooking', element: <ViewRoomBooking /> },
       ],
     },
     {
