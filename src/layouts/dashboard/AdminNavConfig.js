@@ -18,12 +18,12 @@ const adminNavConfig = [
     },
     {
         title: 'Warnln',
-        path: '',
+        path: '/dashboard/warnln-list',
         icon: getIcon('simple-icons:eventstore'),
     },
     {
         title: 'Members',
-        path: '/dashboard/members',
+        path: '/dashboard/members-list',
         icon: getIcon('ic:outline-card-membership'),
     },
     {

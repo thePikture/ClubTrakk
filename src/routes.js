@@ -27,9 +27,12 @@ import RoomBookingList from './AdminPages/RoomBookingList/RoomBookingList';
 import Administration from './AdminPages/Administration/Administration';
 import NewAdministration from './AdminPages/Administration/NewAdministration';
 import Messages from './AdminPages/Messages/Messages';
-import Members from './AdminPages/Members/Members';
 import ViewMessage from './AdminPages/Messages/ViewMessage';
 import ViewRoomBooking from './AdminPages/RoomBookingList/ViewRoomBooking';
+import NewMembers from './AdminPages/Members/NewMembers';
+import MembersList from './AdminPages/Members/MembersList';
+import WarnlnList from './AdminPages/Warnln/WarnlnList';
+import AddWarnln from './AdminPages/Warnln/AddWarnln';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -58,9 +61,12 @@ export default function Router() {
         { path: 'administration', element: <Administration /> },
         { path: 'new-administration', element: <NewAdministration /> },
         { path: 'messages', element: <Messages /> },
-        { path: 'members', element: <Members /> },
+        { path: 'members-list', element: <MembersList /> },
+        { path: 'new-members', element: <NewMembers /> },
         { path: 'view-message', element: <ViewMessage /> },
         { path: 'view-roombooking', element: <ViewRoomBooking /> },
+        { path: 'warnln-list', element: <WarnlnList /> },
+        { path: 'add-warnln', element: <AddWarnln /> },
       ],
     },
     {
