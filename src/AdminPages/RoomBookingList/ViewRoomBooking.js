@@ -21,16 +21,13 @@ import {
   TablePagination,
 } from '@mui/material';
 // components
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Footer from '../../components/Footer';
 
 import Page from '../../components/Page';
 import Label from '../../components/Label';
 import Scrollbar from '../../components/Scrollbar';
 import Iconify from '../../components/Iconify';
-import SearchNotFound from '../../components/SearchNotFound';
-import { UserListHead, UserListToolbar, UserMoreMenu } from '../../sections/@dashboard/user';
-// mock
-import USERLIST from '../../_mock/user';
 
 // ----------------------------------------------------------------------
 
@@ -128,13 +125,30 @@ export default function ViewRoomBooking() {
               <Table sx={{ border: '1px solid rgba(241, 243, 244, 1)' }}>
                 <TableBody>
                   <TableRow>
-                    <TableCell sx={{ width: '20%', borderRight: '1px solid rgba(241, 243, 244, 1)' }}>
-                      Check In Date
+                    <TableCell
+                      sx={{
+                        width: '20%',
+                        borderRight: '1px solid rgba(241, 243, 244, 1)',
+                      }}
+                    >
+                      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <CalendarMonthIcon sx={{ marginRight: '5px' }} />
+                        Check In Date
+                      </Box>
                     </TableCell>
                     <TableCell align="left">Membership Type</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell sx={{ borderRight: '1px solid rgba(241, 243, 244, 1)' }}>Check Out Date</TableCell>
+                    <TableCell
+                      sx={{
+                        borderRight: '1px solid rgba(241, 243, 244, 1)',
+                      }}
+                    >
+                      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <CalendarMonthIcon sx={{ marginRight: '5px' }} />
+                        Check Out Date
+                      </Box>
+                    </TableCell>
                     <TableCell>Name</TableCell>
                   </TableRow>
                 </TableBody>
