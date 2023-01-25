@@ -18,17 +18,25 @@ import {
     TextareaAutosize,
     MenuItem,
     InputLabel,
-    FormControl,
     Button,
 } from '@mui/material';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import { useEffect, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-const Members = () => {
+const NewMembers = () => {
+
+    const handleChangeRadio = (e) => {
+        console.log(e.target.value)
+    }
+
     return (
         <>
             <Box sx={{ paddingLeft: "24px", paddingRight: "24px" }}>
@@ -226,10 +234,41 @@ const Members = () => {
                                 Preferred communication address
                             </Grid>
                             <Grid item xs={6} sx={12}>
-                                Preferred communication address
+                                <FormControl >
+                                    <RadioGroup
+                                        aria-labelledby="demo-controlled-radio-buttons-group"
+                                        name="controlled-radio-buttons-group"
+                                        onChange={handleChangeRadio}
+                                    >
+                                        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                                            <FormControlLabel value="Home" control={<Radio />} label="Home" />
+                                            <FormControlLabel value="Office" control={<Radio />} label="Office" />
+                                        </Box>
+                                    </RadioGroup>
+                                </FormControl>
                             </Grid>
                             <Grid item xs={12} sx={12}>
                                 <hr />
+                            </Grid>
+                            <Grid item xs={12} sx={12}>
+                                <Typography variant='h4' sx={{ color: "grey" }}>SMS/Email Communication Preferences</Typography>
+                            </Grid>
+                            <Grid item xs={6} sx={12}>
+                                <Box>
+                                    <FormControlLabel control={<Checkbox />} label="Email Do Not Disturb" />
+                                </Box>
+                                <Box>
+                                    <Typography variant='p'>Important Note: If you select to be on the Email.
+                                        Do not Disturb list, You will not receive any email from the club.</Typography>
+                                </Box>
+                            </Grid> <Grid item xs={6} sx={12}>
+                                <Box>
+                                    <FormControlLabel control={<Checkbox />} label="SMS Do Not Disturb" />
+                                </Box>
+                                <Box>
+                                    <Typography variant='p'>Important Note: If you select to be on the SMS.
+                                        Do not Disturb list, You will not receive any sms from the club.</Typography>
+                                </Box>
                             </Grid>
                             <Grid item xs={12} sx={12}>
                                 <Button fullWidth variant="contained" type='submit'>
@@ -244,4 +283,4 @@ const Members = () => {
     );
 };
 
-export default Members;
+export default NewMembers;
