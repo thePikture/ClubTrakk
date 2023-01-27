@@ -94,7 +94,7 @@ export default function ViewMessage() {
             </TableContainer>
           </Scrollbar>
         </Card>
-        <Footer />
+        {/* <Footer /> */}
       </Container>
     </Page>
   );

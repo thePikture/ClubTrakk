@@ -156,7 +156,7 @@ export default function ViewRoomBooking() {
             </TableContainer>
           </Scrollbar>
         </Card>
-        <Footer />
+        {/* <Footer /> */}
       </Container>
     </Page>
   );

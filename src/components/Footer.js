@@ -3,8 +3,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <Box sx={{ marginTop: '30px' }}>
-      <p>Copyright © ClubTrakk</p>
+    <Box sx={{ marginLeft: '40px' }}>
+      <Typography variant="p">Copyright © ClubTrakk</Typography>
     </Box>
   );
 };
